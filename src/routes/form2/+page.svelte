@@ -1,18 +1,59 @@
 <script>
+    import { svelteStore } from "./store.js";
+
+    let title = '';
+    let category = null;
+    let description = '';
+
+    const foobar = () => {
+        console.log('foobar');
+    }
 </script>
 
 <h1>Edit issue</h1>
 
 <form method="POST">
-    <label for="name">Title:</label> <input id="name" name="name" placeholder="John Doe" /><br />
-    <label for="category">Category:</label>
-    <select name="category" id="category">
-        <option value="bug">Bug</option>
-        <option value="feature">Feature</option>
-    </select>
+    <div>
+        <label for="title">Title:</label>
+        <input
+            id="title"
+            name="title"
+            bind:value={title}
+            placeholder="Fill in the issue title here"
+        />
+    </div>
+    <div>
+        <label for="category">Category:</label>
+        <select
+            id="category"
+            name="category"
+            bind:value={category}
+        >
+            <option value="null">-</option>
+            <option value="bug">Bug</option>
+            <option value="feature">Feature</option>
+        </select>
+    </div>
 
-    <label for="description">Description:</label><br />
-    <textarea id="descrption" name="descrption" placeholder="Issue description" /><br />
+    <div>
+        <label for="description">Description:</label><br />
+        <textarea
+            id="descrption"
+            name="descrption"
+            bind:value={description}
+            placeholder="Issue description"
+        />
+    </div>
 
     <input type="submit" value="Save" />
+
 </form>
+<button on:click={() => foobar()}>Foobar</button>
+
+Data:
+
+<pre>
+title: {title}
+category: {category}
+description: {description}
+</pre>
