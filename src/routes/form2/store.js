@@ -8,4 +8,4 @@ export const svelteStore = svelteSyncedStore(store);
 
 // Create a document that syncs automatically using Y-WebRTC
 const doc = getYjsDoc(store);
-export const webrtcProvider = new WebrtcProvider("syncedstore-form", doc);
+export const webrtcProvider = new WebrtcProvider("syncedstore-form", doc, { signaling: ["ws://localhost:4444"] });
