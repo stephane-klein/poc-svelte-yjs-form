@@ -1,3 +1,6 @@
+<script>
+</script>
+
 <h1>Edit issue</h1>
 
 <form method="POST">
