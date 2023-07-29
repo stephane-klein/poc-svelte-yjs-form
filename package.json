@@ -27,10 +27,11 @@
 		"@sveltejs/kit": "1.22.3",
 		"@syncedstore/core": "^0.5.2",
 		"@syncedstore/svelte": "^0.5.2",
+		"svelt-yjs": "1.1.0",
 		"svelte": "4.1.1",
 		"vite": "4.4.7",
-		"y-webrtc": "^10.2.5",
-		"y-websocket": "^1.5.0",
+		"y-webrtc": "10.2.5",
+		"y-websocket": "1.5.0",
 		"yjs": "13.6.7"
 	}
 }

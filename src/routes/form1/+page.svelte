@@ -1,7 +1,22 @@
 <script>
-    let title = '';
-    let category = null;
-    let description = '';
+    import * as Y from 'yjs';
+	// import { WebsocketProvider } from 'y-websocket';
+    import { WebrtcProvider } from 'y-webrtc';
+	import { readableMap } from 'svelt-yjs';
+
+    const ydoc = new Y.Doc();
+	let dict;
+    // new WebsocketProvider("ws://localhost:1234", 'example', ydoc);
+    new WebrtcProvider(
+        'your-room-name',
+        ydoc,
+        {
+            signaling: ['ws://localhost:4444']
+        }
+    );
+
+    const ymap = ydoc.getMap('dict');
+    dict = readableMap(ymap);
 </script>
 
 <h1>Edit issue</h1>
@@ -12,7 +27,8 @@
         <input
             id="title"
             name="title"
-            bind:value={title}
+            value={$dict.get('title')}
+            on:change={({target}) => dict.y.set("title", target.value)}
             placeholder="Fill in the issue title here"
         />
     </div>
@@ -21,7 +37,8 @@
         <select
             id="category"
             name="category"
-            bind:value={category}
+            value={$dict.get('category')}
+            on:change={({target}) => dict.y.set("category", target.value)}
         >
             <option value="null">-</option>
             <option value="bug">Bug</option>
@@ -34,7 +51,8 @@
         <textarea
             id="descrption"
             name="descrption"
-            bind:value={description}
+            value={$dict.get('description')}
+            on:change={({target}) => dict.y.set("description", target.value)}
             placeholder="Issue description"
         />
     </div>
@@ -45,7 +63,7 @@
 Data:
 
 <pre>
-title: {title}
-category: {category}
-description: {description}
+title: {$dict.get("title")}
+category: {$dict.get("category")}
+description: {$dict.get("description")}
 </pre>

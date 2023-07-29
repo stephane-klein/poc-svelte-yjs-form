@@ -22,4 +22,4 @@ Start webapp:
 $ pnpm run dev
 ```
 
-Go to http://localhost:5173/form2
+Open http://localhost:5173/form1 in two browser windom and play with form fields.
