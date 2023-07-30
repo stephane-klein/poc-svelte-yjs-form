@@ -7,14 +7,8 @@ dependencies:
   '@sveltejs/kit':
     specifier: 1.22.3
     version: 1.22.3(svelte@4.1.1)(vite@4.4.7)
-  '@syncedstore/core':
-    specifier: ^0.5.2
-    version: 0.5.2(yjs@13.6.7)
-  '@syncedstore/svelte':
-    specifier: ^0.5.2
-    version: 0.5.2(@reactivedata/reactive@0.2.2)(@syncedstore/core@0.5.2)(svelte@4.1.1)
   svelt-yjs:
-    specifier: ^1.1.0
+    specifier: 1.1.0
     version: 1.1.0
   svelte:
     specifier: 4.1.1
@@ -23,10 +17,10 @@ dependencies:
     specifier: 4.4.7
     version: 4.4.7
   y-webrtc:
-    specifier: ^10.2.5
+    specifier: 10.2.5
     version: 10.2.5
   y-websocket:
-    specifier: ^1.5.0
+    specifier: 1.5.0
     version: 1.5.0(yjs@13.6.7)
   yjs:
     specifier: 13.6.7
@@ -404,14 +398,6 @@ packages:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: false
 
-  /@reactivedata/reactive@0.2.0:
-    resolution: {integrity: sha512-qWmVSmUrjKHBiD+ZS8TxNNzyk9J6rbcZSZJgcnKQpTLwORZoWuX5pYbl07aU0kzXGLaaVX2O/ZW+SZaBjRQW3g==}
-    dev: false
-
-  /@reactivedata/reactive@0.2.2:
-    resolution: {integrity: sha512-KnINM/Sng25QAv6sHkJO9q/XyslLegCF5jTsTSVu+AouY3uZDVf4Am99xNCqsfqFZFvnTBBDvCsHNdvTVGvPEA==}
-    dev: false
-
   /@rollup/plugin-commonjs@25.0.3(rollup@3.22.0):
     resolution: {integrity: sha512-uBdtWr/H3BVcgm97MUdq2oJmqBR23ny1hOrWe2PKo9FTbjsGqg32jfasJUKYAI5ouqacjRnj65mBB/S79F+GQA==}
     engines: {node: '>=14.0.0'}
@@ -551,55 +537,12 @@ packages:
       - supports-color
     dev: false
 
-  /@syncedstore/core@0.5.2(yjs@13.6.7):
-    resolution: {integrity: sha512-gg1cJwhdwF806smc8xfuGk4bH4JRgKN7HqCt383ZvyA2MySEOlyvZf49XOdwz+zia4bE2T/oBfkcBNgZrQNubg==}
-    peerDependencies:
-      yjs: ^13.5.13
-    dependencies:
-      '@reactivedata/reactive': 0.2.0
-      '@syncedstore/yjs-reactive-bindings': 0.5.2(yjs@13.6.7)
-      '@types/eslint': 6.8.0
-      yjs: 13.6.7
-    dev: false
-
-  /@syncedstore/svelte@0.5.2(@reactivedata/reactive@0.2.2)(@syncedstore/core@0.5.2)(svelte@4.1.1):
-    resolution: {integrity: sha512-sEq/3G+OfTy8qabCsiS0knTOOwf+SuPNC2w1FocSBkgO2W/bsZO+hznQ7v5T4+3vbTXZmM+bYRyghNlVmiIQfQ==}
-    peerDependencies:
-      '@reactivedata/reactive': '*'
-      '@syncedstore/core': '*'
-      svelte: '*'
-    dependencies:
-      '@reactivedata/reactive': 0.2.2
-      '@syncedstore/core': 0.5.2(yjs@13.6.7)
-      svelte: 4.1.1
-    dev: false
-
-  /@syncedstore/yjs-reactive-bindings@0.5.2(yjs@13.6.7):
-    resolution: {integrity: sha512-5y4aUtZoDuvpnlCj2RxTR7P0UuQeF9SfL2K3S+JAqihYWECX8YEa0GvGRWgU7CEPpnLcFXkiSxDqgk87wu7fHw==}
-    peerDependencies:
-      yjs: ^13.5.13
-    dependencies:
-      '@types/eslint': 6.8.0
-      yjs: 13.6.7
-    dev: false
-
   /@types/cookie@0.5.1:
     resolution: {integrity: sha512-COUnqfB2+ckwXXSFInsFdOAWQzCCx+a5hq2ruyj+Vjund94RJQd4LG2u9hnvJrTgunKAaax7ancBYlDrNYxA0g==}
     dev: false
 
-  /@types/eslint@6.8.0:
-    resolution: {integrity: sha512-hqzmggoxkOubpgTdcOltkfc5N8IftRJqU70d1jbOISjjZVPvjcr+CLi2CI70hx1SUIRkLgpglTy9w28nGe2Hsw==}
-    dependencies:
-      '@types/estree': 1.0.0
-      '@types/json-schema': 7.0.12
-    dev: false
-
   /@types/estree@1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
-
-  /@types/json-schema@7.0.12:
-    resolution: {integrity: sha512-Hr5Jfhc9eYOQNPYO5WLDq/n4jqijdHNlDXjuAQkkt+mWdQR+XJToOHrsD4cPaMXpn6KO7y2+wM8AZEs8VpBLVA==}
-    dev: false
 
   /@types/json5@0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
