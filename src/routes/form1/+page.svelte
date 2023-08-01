@@ -1,27 +1,10 @@
 <script>
-    import { onMount } from 'svelte';
     import * as Y from 'yjs';
-	// import { WebsocketProvider } from 'y-websocket';
     import { WebrtcProvider } from 'y-webrtc';
 	import { readableMap } from 'svelt-yjs';
-    import {schema} from "prosemirror-schema-basic"
-    import {EditorState} from "prosemirror-state"
-    import {EditorView} from "prosemirror-view"
-
-    export let editor = null
-    let state = EditorState.create({schema})
-    let view = new EditorView(document.body, {state})
-
-    onMount(() => {
-        console.log("editor");
-        console.log(editor);
-        view = new EditorView({mount: editor}, {
-
-    });
 
     const ydoc = new Y.Doc();
 	let dict;
-    // new WebsocketProvider("ws://localhost:1234", 'example', ydoc);
     new WebrtcProvider(
         'your-room-name',
         ydoc,
@@ -74,11 +57,6 @@
 
     <input type="submit" value="Save" />
 </form>
-
-<div
-     bind:this={editor}
-></div>
-
 
 Data:
 
