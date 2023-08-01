@@ -1,11 +1,20 @@
 <script>
+    import './main.css';
+    import { onMount, onDestroy } from 'svelte'
     import * as Y from 'yjs';
     import { WebrtcProvider } from 'y-webrtc';
 	import { readableMap } from 'svelt-yjs';
+    import { Editor } from '@tiptap/core'
+    import StarterKit from '@tiptap/starter-kit'
+    import Collaboration from '@tiptap/extension-collaboration';
+    import CollaborationCursor from '@tiptap/extension-collaboration-cursor';
+
+    let element;
+    let editor;
 
     const ydoc = new Y.Doc();
 	let dict;
-    new WebrtcProvider(
+    const provider = new WebrtcProvider(
         'your-room-name',
         ydoc,
         {
@@ -15,6 +24,38 @@
 
     const ymap = ydoc.getMap('dict');
     dict = readableMap(ymap);
+
+    onMount(() => {
+        editor = new Editor({
+            element: element,
+            extensions: [
+                StarterKit.configure({
+                    history: false
+                }),
+                Collaboration.configure({
+                    document: ydoc
+                }),
+                CollaborationCursor.configure({
+                    provider: provider,
+                    user: {
+                        name: 'Cyndi Lauper',
+                        color: '#f783ac',
+                    },
+                }),
+            ],
+            content: '<p>Hello World! 🌍️ </p>',
+            onTransaction: () => {
+                // force re-render so `editor.isActive` works as expected
+                editor = editor
+            },
+        })
+    });
+
+    onDestroy(() => {
+        if (editor) {
+            editor.destroy()
+        }
+    });
 </script>
 
 <h1>Edit issue</h1>
@@ -46,6 +87,7 @@
 
     <div>
         <label for="description">Description:</label><br />
+        <!--
         <textarea
             id="descrption"
             name="descrption"
@@ -53,6 +95,28 @@
             on:change={({target}) => dict.y.set("description", target.value)}
             placeholder="Issue description"
         />
+-->
+        {#if editor}
+            <button
+                on:click={(event) => { editor.chain().focus().toggleHeading({ level: 1}).run(); event.preventDefault();}}
+                class:active={editor.isActive('heading', { level: 1 })}
+            >
+                H1
+            </button>
+            <button
+                on:click={(event) => { editor.chain().focus().toggleHeading({ level: 2 }).run(); event.preventDefault();}}
+                class:active={editor.isActive('heading', { level: 2 })}
+            >
+                H2
+            </button>
+            <button
+                    on:click={(event) => { editor.chain().focus().setParagraph().run(); event.preventDefault();}}
+                    class:active={editor.isActive('paragraph')}>
+                P
+            </button>
+        {/if}
+
+        <div bind:this={element} />
     </div>
 
     <input type="submit" value="Save" />
