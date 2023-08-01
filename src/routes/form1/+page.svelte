@@ -48,6 +48,10 @@
                 // force re-render so `editor.isActive` works as expected
                 editor = editor
             },
+            onBlur({ editor, event}) {
+                console.log('on blur');
+                console.log(editor.getText());
+            }
         })
     });
 
@@ -116,7 +120,9 @@
             </button>
         {/if}
 
-        <div bind:this={element} />
+        <div
+            bind:this={element}
+        />
     </div>
 
     <input type="submit" value="Save" />
