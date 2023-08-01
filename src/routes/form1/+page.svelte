@@ -15,6 +15,8 @@
     onMount(() => {
         console.log("editor");
         console.log(editor);
+        view = new EditorView({mount: editor}, {
+
     });
 
     const ydoc = new Y.Doc();
